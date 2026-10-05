@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Research Assistant</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app-shell" id="app">
+
+        <!-- Mode Selection Screen -->
+        <div class="card centered" id="mode-screen">
+
+            <h1>AI Research Assistant</h1>
+
+            <p class="subtitle">
+                Choose a mode to get started
+            </p>
+
+            <div class="mode-grid">
+
+                <button class="mode-card" id="pdf-mode-btn">
+
+                    <span class="mode-icon">📄</span>
+
+                    <span class="mode-title">
+                        PDF Bot
+                    </span>
+
+                    <span class="mode-desc">
+                        Upload a PDF and chat with its contents
+                    </span>
+
+                </button>
+
+
+                <button class="mode-card" id="wikipedia-mode-btn">
+
+                    <span class="mode-icon">🌐</span>
+
+                    <span class="mode-title">
+                        Wikipedia Bot
+                    </span>
+
+                    <span class="mode-desc">
+                        Pick a topic and chat with its Wikipedia article
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Source Loading Screen -->
+        <div class="card centered hidden" id="loader-screen">
+
+            <button class="link-btn" id="back-btn">
+                ← Back
+            </button>
+
+            <h2 id="loader-title">
+                Upload a PDF
+            </h2>
+
+            <form class="loader-form" id="loader-form">
+
+                <!-- PDF input -->
+                <input
+                    type="file"
+                    id="pdf-input"
+                    accept="application/pdf"
+                >
+
+                <!-- Wikipedia input -->
+                <input
+                    type="text"
+                    id="topic-input"
+                    placeholder="e.g. Alan Turing"
+                    class="hidden"
+                >
+
+                <button
+                    type="submit"
+                    class="primary-btn"
+                    id="start-chat-btn"
+                >
+                    Start Chat
+                </button>
+
+            </form>
+
+            <p class="error-text hidden" id="loader-error"></p>
+
+        </div>
+
+
+        <!-- Chat Screen -->
+        <div class="chat-card hidden" id="chat-screen">
+
+            <div class="chat-header">
+
+                <div class="chat-source-label" id="source-label">
+                </div>
+
+                <button
+                    class="link-btn"
+                    id="reset-btn"
+                >
+                    Start over
+                </button>
+
+            </div>
+
+
+            <div class="chat-messages" id="chat-messages">
+
+                <p class="empty-hint" id="empty-hint">
+                    Ask a question to get started.
+                    Follow-ups remember earlier context.
+                </p>
+
+            </div>
+
+
+            <form
+                class="chat-input-row"
+                id="chat-form"
+            >
+
+                <input
+                    type="text"
+                    id="chat-input"
+                    placeholder="Ask a question..."
+                    autocomplete="off"
+                >
+
+                <button
+                    type="submit"
+                    class="primary-btn"
+                    id="send-btn"
+                >
+                    Send
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="app.js"></script>
+
+</body>
+</html>
